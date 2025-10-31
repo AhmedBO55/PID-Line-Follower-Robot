@@ -6,7 +6,7 @@
   ==================================================================
 -->
 
-## 10/31/2025 - My previous work from the Summer of Making.  
+## 10/31/2025 2 PM - My previous work from the Summer of Making.  
 
 This is some of my previous work from the Summer of Making.
 I am posting this so as not to count as Blue Print working hours.
@@ -17,5 +17,17 @@ What I worked on back then included 3D modeling of the components of the robot a
 
 
 ![707e0b68-b6ef-40ca-9609-a6343efdecb8](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6Njk3OCwicHVyIjoiYmxvYl9pZCJ9fQ==--93d0fb90efb0d96636babf3eb75ed9663cb2f604/707e0b68-b6ef-40ca-9609-a6343efdecb8.jpg)
+  
+
+## 10/31/2025 11 PM - New Prototype Board  
+
+Today I built a new prototype and soldered my new board with the ESP32.
+It was one of my longest and hardest soldering sessions so far.
+The process was quite complex.I had to resolder some parts after realizing I mixed up analog and digital pins for the sensors.
+I haven’t tested it with power yet, but I checked continuity with a multimeter, and everything seems connected correctly.
+![05e07714-f974-4fa2-b5d2-2a651cbbcf54](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NzIwNywicHVyIjoiYmxvYl9pZCJ9fQ==--968d3fe25a1d88c89b3d312201bf44a1769552a5/05e07714-f974-4fa2-b5d2-2a651cbbcf54.jpg)
+
+![eb5f2644-13bf-48ca-8c5d-612c822482d7](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NzIwOCwicHVyIjoiYmxvYl9pZCJ9fQ==--461699ea985d0c8c736eb4d04b9ff05723d48a3e/eb5f2644-13bf-48ca-8c5d-612c822482d7.jpg)
+
   
 
