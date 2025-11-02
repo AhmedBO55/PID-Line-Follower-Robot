@@ -31,3 +31,14 @@ I haven’t tested it with power yet, but I checked continuity with a multimeter
 
   
 
+## 11/2/2025 - Assembly and Motor Testing  
+
+Today, I completed the assembly of the whole robot and spent a great deal of time leveling it, since the wheel diameter, bille libre, and line sensor were not all at the same level. I had to adjust them carefully to everything level out.
+Once I was done, I began testing the motors and the TB6612FNG driver. It was my first time using PWM and the enable pins of the TB6612 driver and encountered many small issues, but I got everything worked out as it moved along.
+I tested out the motors with the Bluetooth control code and were able to get the motors and TB6612FNG supplier to work properly.
+I am still working on getting the QTR sensor to work, so next step is to tackle this.
+![d8344871-03e9-4145-8de2-d1c7d5ed39c5](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6Nzc1MCwicHVyIjoiYmxvYl9pZCJ9fQ==--05adcd3c995ba3bbe5dc0f1e0da4ba22419d5b03/d8344871-03e9-4145-8de2-d1c7d5ed39c5.jpg)
+![ed9c623a-0ca6-4158-a70d-18cbd5404c14](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6Nzc0OSwicHVyIjoiYmxvYl9pZCJ9fQ==--2b73491c95b4ec7ce23e60d7e94ae54314a3ee6d/ed9c623a-0ca6-4158-a70d-18cbd5404c14.jpg)
+![60292b5f-90e8-4e43-bcf8-5e8e3fc0513c](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6Nzc0OCwicHVyIjoiYmxvYl9pZCJ9fQ==--a01958ea09c4df409883a67b67f5241f84a6a029/60292b5f-90e8-4e43-bcf8-5e8e3fc0513c.jpg)
+  
+
