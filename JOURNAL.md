@@ -42,3 +42,152 @@ I am still working on getting the QTR sensor to work, so next step is to tackle 
 ![60292b5f-90e8-4e43-bcf8-5e8e3fc0513c](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6Nzc0OCwicHVyIjoiYmxvYl9pZCJ9fQ==--a01958ea09c4df409883a67b67f5241f84a6a029/60292b5f-90e8-4e43-bcf8-5e8e3fc0513c.jpg)
   
 
+## 11/6/2025 - QTR Testing and Problems Found  
+
+During the last four days, I spent all my time trying to get the QTR sensors to work.
+I tested everything using a calibration code and even changed the plate level of the QTR during testing, which helped a bit, but the readings were still unstable.
+After many trials, I found that some pins on the QTR sensor and the board were damaged, which caused major signal problems.
+Because of that, I’ve decided to replace the QTR sensors with BFD-1000 modules.
+This means I’ll need to update my 3D model, adjust the code, and resolder a new board for the new sensors.
+
+![245848cd-aa1a-4533-9b5a-98509c06daa5](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6ODk4OCwicHVyIjoiYmxvYl9pZCJ9fQ==--0ffe1aed1010a6a5c43eaecc5367cd7655e8bdea/245848cd-aa1a-4533-9b5a-98509c06daa5.jpg)![8657a45b-9495-46db-8a2a-7735b4af5f6f](/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6ODk4OSwicHVyIjoiYmxvYl9pZCJ9fQ==--a25c4d00a53ad889e9fedfa5b62964949b9e40d5/8657a45b-9495-46db-8a2a-7735b4af5f6f.jpg)
+![9925b78a-51ba-4237-970f-c0037875342b](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6ODk4NywicHVyIjoiYmxvYl9pZCJ9fQ==--f73e4627b47565efc158f22ad00567e06887976a/9925b78a-51ba-4237-970f-c0037875342b.jpg)
+![{2F77CB7B-FFCD-4B57-91C7-A8CAACA83E8E}](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6ODk5MCwicHVyIjoiYmxvYl9pZCJ9fQ==--11a386021466390cd5e3036b062855d91693ca25/%7B2F77CB7B-FFCD-4B57-91C7-A8CAACA83E8E%7D.png)
+`const int pins[8] = {12, 15, 2, 35, 34, 36, 39, 4};
+const int total = 8;
+
+int raw[8];
+int normalized[8];
+int minVal[8];
+int maxVal[8];
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+  
+  Serial.println("QTR-8A Test");
+  Serial.println("===========");
+  
+  for (int i = 0; i < total; i++) {
+    pinMode(pins[i], INPUT);
+  }
+  
+  Serial.println("Pins:");
+  for (int i = 0; i < total; i++) {
+    Serial.print("S");
+    Serial.print(i + 1);
+    Serial.print(": ");
+    Serial.println(pins[i]);
+  }
+  Serial.println();
+  
+  delay(2000);
+  runCalibration();
+}
+
+void runCalibration() {
+  Serial.println("CALIBRATION");
+  Serial.println("===========");
+  Serial.println("Move sensors over black and white for 5 seconds...");
+  Serial.println();
+  
+  for (int i = 0; i < total; i++) {
+    minVal[i] = 4095;
+    maxVal[i] = 0;
+  }
+  
+  unsigned long start = millis();
+  while (millis() - start < 5000) {
+    for (int i = 0; i < total; i++) {
+      int val = analogRead(pins[i]);
+      
+      if (val < minVal[i]) {
+        minVal[i] = val;
+      }
+      if (val > maxVal[i]) {
+        maxVal[i] = val;
+      }
+    }
+    
+    if ((millis() - start) % 1000 < 50) {
+      Serial.print(".");
+    }
+    delay(10);
+  }
+  
+  Serial.println("\n");
+  Serial.println("Done!");
+  Serial.println("Range per sensor:");
+  
+  for (int i = 0; i < total; i++) {
+    Serial.print("S");
+    Serial.print(i + 1);
+    Serial.print(": ");
+    Serial.print(minVal[i]);
+    Serial.print(" - ");
+    Serial.println(maxVal[i]);
+  }
+  
+  Serial.println();
+  Serial.println("Readings (0=black, 1000=white)");
+  Serial.println("==============================");
+  Serial.println();
+  delay(2000);
+}
+
+void loop() {
+  for (int i = 0; i < total; i++) {
+    int reading = analogRead(pins[i]);
+    raw[i] = reading;
+    
+    normalized[i] = map(reading, minVal[i], maxVal[i], 0, 1000);
+    normalized[i] = constrain(normalized[i], 0, 1000);
+  }
+  
+  Serial.print("Raw:  ");
+  for (int i = 0; i < total; i++) {
+    Serial.print(raw[i]);
+    if (i < total - 1) {
+      Serial.print(" | ");
+    }
+  }
+  Serial.println();
+  
+  Serial.print("Norm: ");
+  for (int i = 0; i < total; i++) {
+    Serial.print(normalized[i]);
+    if (i < total - 1) {
+      Serial.print(" | ");
+    }
+  }
+  Serial.println();
+  
+  Serial.print("View: ");
+  for (int i = 0; i < total; i++) {
+    int bars = map(normalized[i], 0, 1000, 0, 10);
+    for (int j = 0; j < bars; j++) {
+      Serial.print("█");
+    }
+    for (int j = bars; j < 10; j++) {
+      Serial.print("·");
+    }
+    Serial.print(" ");
+  }
+  Serial.println();
+  
+  Serial.print("Det:  ");
+  for (int i = 0; i < total; i++) {
+    if (normalized[i] < 500) {
+      Serial.print("■");
+    } else {
+      Serial.print("□");
+    }
+    Serial.print(" ");
+  }
+  Serial.println();
+  Serial.println();
+  
+  delay(200);
+}`
+  
+
