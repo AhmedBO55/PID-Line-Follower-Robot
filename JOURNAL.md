@@ -191,3 +191,16 @@ void loop() {
 }`
   
 
+## 11/8/2025 - BFD-1000 Soldering and Testing  
+
+Today I started soldering the new board.
+I didn’t finish everything yet I only soldered the BFD-1000 module pins.
+This time I learned from my previous mistakes, so I decided to test all the sensors before soldering the full board.
+
+Surprisingly, everything worked super well all the sensors are working perfectly and are ready to be used.
+The next step will be to finish soldering the entire board and bring the new 3D model to life.
+![2acf4957-dcae-44c1-afdf-7964abe50abb](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6OTI3NSwicHVyIjoiYmxvYl9pZCJ9fQ==--e10e11180d16c0af4c111a92dab3829fe982f276/2acf4957-dcae-44c1-afdf-7964abe50abb.jpg)![998227fb-6f2a-42d6-bb61-3794fb786d87](/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6OTI3NiwicHVyIjoiYmxvYl9pZCJ9fQ==--b94f0ec4e38732b20eb363cfbb301abec0bee956/998227fb-6f2a-42d6-bb61-3794fb786d87.jpg)
+
+![{3020FE48-D0D7-4E40-82B5-0DD504D91152}](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6OTI3NywicHVyIjoiYmxvYl9pZCJ9fQ==--1755c07565cb6655f39f06649534c0ba7b7b3af9/%7B3020FE48-D0D7-4E40-82B5-0DD504D91152%7D.png)
+  
+
