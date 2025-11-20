@@ -10,6 +10,12 @@ I did this project because I am very interested in robotics competitions, and I 
 <img width="1902" height="869" alt="{8EE49D31-0FA8-4DDD-9549-9236D85A650A}" src="https://github.com/user-attachments/assets/d14ca05c-23ca-48f0-ad2a-0e62ecf5e370" />
 
 ![68747470733a2f2f626c75657072696e742e6861636b636c75622e636f6d2f757365722d6174746163686d656e74732f626c6f62732f70726f78792f65794a66636d467062484d694f6e73695a474630595349364e7a49774e79776963485679496a6f69596d](https://github.com/user-attachments/assets/d7a6d274-70f1-4fb0-a42b-07101b2581d3)
+---
+## Circuit diagram
+
+<img width="1640" height="924" alt="Circuit diagram" src="https://github.com/user-attachments/assets/651e5d64-bb64-4bee-9149-7360b508ca1b" />
+
+--- 
 
 ## Features
 - **PID control** for smooth and accurate line following 
